@@ -23,3 +23,15 @@ Simply below steps will be enough
 | auth.enabled  | Lets us to create secured nodes |
 | sentinel.enabled  | Lets us to install Redis in Sentinel mode |
 | sentinel.masterSet  | Lets us to set name for Sentinel |
+
+After running comman above, We must see pods running like in the below image
+![image](https://user-images.githubusercontent.com/13851288/224551709-dd45b87b-6946-421a-957b-25137e4c2c9d.png)
+
+# Spring Boot Application Running
+To run Spring Boot app that we have in this repository in the same Kubernetes cluster with Redis Sentinel, We can follow steps below.
+
+* Run mvn package for the app
+* Run docker build -t spring-redis-sentinel-client:v2 .
+* Go to kubernetes directory in the repository
+* Run kubectl apply -f app.yaml
+* Run kubectl apply -f service.yaml
