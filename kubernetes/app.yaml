@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "spring-redis-sentinel-client"
+  labels:
+    component: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        app: spring-redis-sentinel-client
+        component: web
+    spec:
+      containers:
+        - name: spring-redis-sentinel-client
+          image: spring-redis-sentinel-client:v2
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 1000Mi
+          ports:
+            - containerPort: 8080

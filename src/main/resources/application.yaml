@@ -1,0 +1,7 @@
+spring:
+  redis:
+    sentinel:
+      master: redis-sentinel-master
+      nodes: 127.0.0.1:6379
+      username: 1
+      password: 1
